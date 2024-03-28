@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cix3atgsypxyk"]
+
+[ext_resource type="PackedScene" uid="uid://dpq0fo2s1vc7" path="res://ModelSourceFile/level/element.glb" id="1_26os5"]
+[ext_resource type="Script" path="res://game/Scenes/levelComponents/DyeDoor/DyeDoor.cs" id="2_bw6sr"]
+
+[node name="DyeDoor" instance=ExtResource("1_26os5")]
+script = ExtResource("2_bw6sr")
+cubeColor = 4

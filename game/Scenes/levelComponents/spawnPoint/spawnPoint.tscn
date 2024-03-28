@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d36jugacf5kcr"]
+
+[ext_resource type="PackedScene" uid="uid://dpq0fo2s1vc7" path="res://ModelSourceFile/level/element.glb" id="1_wh2mw"]
+
+[node name="SpawnPoint" instance=ExtResource("1_wh2mw")]

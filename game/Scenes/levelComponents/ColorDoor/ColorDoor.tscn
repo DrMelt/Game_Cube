@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c40ojof70j8ss"]
+
+[ext_resource type="PackedScene" uid="uid://dpq0fo2s1vc7" path="res://ModelSourceFile/level/element.glb" id="1_iiv3j"]
+[ext_resource type="Shader" uid="uid://crjs7l57x1dus" path="res://game/Scenes/levelComponents/ColorDoor/ColorDoor.tres" id="2_ocry2"]
+[ext_resource type="Script" path="res://game/Scenes/levelComponents/ColorDoor/ColorDoor.cs" id="2_v6mfr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q4hh3"]
+render_priority = 0
+shader = ExtResource("2_ocry2")
+shader_parameter/PosScale = 20.465
+shader_parameter/noiseOffset = Vector3(0, 3.795, 0)
+shader_parameter/timeScale = 0.0
+shader_parameter/bgBlendValue = 0.2
+shader_parameter/emitionColor = Color(0.48, 0.87, 1, 1)
+shader_parameter/bgColor = Color(0.48, 0.87, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_32thd"]
+
+[node name="ColorDoor" instance=ExtResource("1_iiv3j")]
+script = ExtResource("2_v6mfr")
+
+[node name="Cube" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_q4hh3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+visible = false
+collision_layer = 256
+collision_mask = 257
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_32thd")
