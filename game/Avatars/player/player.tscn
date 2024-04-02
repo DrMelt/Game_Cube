@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bd3rqp1hkw16l"]
 
 [ext_resource type="Script" path="res://game/Avatars/player/Player.cs" id="1_xoh4g"]
-[ext_resource type="PackedScene" uid="uid://dayjotmll6y0r" path="res://ModelSourceFile/player/player.tscn" id="2_2nbjl"]
+[ext_resource type="PackedScene" uid="uid://dayjotmll6y0r" path="res://SourceFiles/player/player.tscn" id="2_2nbjl"]
 [ext_resource type="Shader" path="res://game/Avatars/player/PostProcess.gdshader" id="3_ccqjh"]
 [ext_resource type="Script" path="res://game/Avatars/player/PostProcessing3D.cs" id="3_inb7j"]
 

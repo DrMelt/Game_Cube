@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmotakodmdymh"]
+
+[ext_resource type="PackedScene" uid="uid://dpq0fo2s1vc7" path="res://SourceFiles/level/element.glb" id="1_eajqu"]
+[ext_resource type="Shader" uid="uid://d1f8tltupeg5d" path="res://game/Scenes/levelComponents/DoorIndicate/DoorIndicate.tres" id="2_tc12q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y1tt5"]
+render_priority = 0
+shader = ExtResource("2_tc12q")
+
+[node name="DoorIndicate" instance=ExtResource("1_eajqu")]
+
+[node name="Cube" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_y1tt5")

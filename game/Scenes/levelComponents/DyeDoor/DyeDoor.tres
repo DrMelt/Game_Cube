@@ -1,0 +1,71 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://col67pkx34stu"]
+
+[ext_resource type="Texture2D" uid="uid://dt5rkdm7202i1" path="res://SourceFiles/level/Cube_uv.png" id="1_3yviv"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_fegvo"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_n3305"]
+expanded_output_ports = [0]
+texture = ExtResource("1_3yviv")
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_kyo5h"]
+parameter_name = "Color"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_hjbh6"]
+default_input_values = [1, 0.2, 2, 1.0, 3, 0.0, 4, 1.0]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_3;
+uniform vec4 Color : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+
+
+
+void fragment() {
+// FloatConstant:2
+	float n_out2p0 = 0.000000;
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, UV);
+	float n_out3p4 = n_out3p0.a;
+
+
+	float n_out6p0;
+// Remap:6
+	float n_in6p1 = 0.20000;
+	float n_in6p2 = 1.00000;
+	float n_in6p3 = 0.00000;
+	float n_in6p4 = 1.00000;
+	{
+		float __input_range = n_in6p2 - n_in6p1;
+		float __output_range = n_in6p4 - n_in6p3;
+		n_out6p0 = n_in6p3 + __output_range * ((n_out3p4 - n_in6p1) / __input_range);
+	}
+
+
+// ColorParameter:4
+	vec4 n_out4p0 = Color;
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0);
+	ALPHA = n_out6p0;
+	EMISSION = vec3(n_out4p0.xyz);
+
+
+}
+"
+modes/cull = 2
+nodes/fragment/2/node = SubResource("VisualShaderNodeFloatConstant_fegvo")
+nodes/fragment/2/position = Vector2(210.556, 134.027)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_n3305")
+nodes/fragment/3/position = Vector2(-420, 180)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_kyo5h")
+nodes/fragment/4/position = Vector2(-400, 500)
+nodes/fragment/6/node = SubResource("VisualShaderNodeRemap_hjbh6")
+nodes/fragment/6/position = Vector2(-160, 240)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 4, 6, 0, 6, 0, 0, 1, 4, 0, 0, 5)

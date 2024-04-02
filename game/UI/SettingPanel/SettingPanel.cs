@@ -1,17 +1,38 @@
+using GameKernel;
 using Godot;
 using System;
 
-public partial class SettingPanel : Control
+namespace GameKernel
 {
-	public override void _Ready()
+	public partial class SettingPanel : Control
 	{
-	}
+		[Export]
+		bool visibleInit = false;
 
-	public override void _Process(double delta)
-	{
-		if (Input.IsActionJustPressed("ui_esc"))
+		public override void _Ready()
 		{
-			Visible = !Visible;
+			Visible = visibleInit;
+
+			ButtonBackMenu.BackMenuEvenet += () =>
+			{
+				Visible = false;
+			};
+
+		}
+
+		public override void _Process(double delta)
+		{
+			if (LevelsManager.CurrentLevel != LevelName.MAIN_MENU)
+			{
+				if (Input.IsActionJustPressed("ui_esc"))
+				{
+					Visible = !Visible;
+				}
+			}
+			else
+			{
+				Visible = false;
+			}
 		}
 	}
 }

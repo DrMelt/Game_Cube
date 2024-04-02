@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c84xoruxq4j1j"]
+
+[ext_resource type="FontFile" uid="uid://m3wiseb8garp" path="res://fonts/Noto_Sans_SC/static/NotoSansSC-Medium.ttf" id="1_qm2sc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxc1d"]
+
+[resource]
+Button/fonts/font = ExtResource("1_qm2sc")
+Button/styles/normal = SubResource("StyleBoxFlat_bxc1d")

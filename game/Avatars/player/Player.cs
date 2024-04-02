@@ -28,15 +28,14 @@ namespace GameKernel
 		float moveSpeed = 10.0f;
 
 		[Export]
-		float cameraXMin = -(float)Math.PI * 60 / 180f;
+		float cameraXMin = -(float)Math.PI * 80 / 180f;
 		[Export]
 		float cameraXMax = (float)Math.PI * 80 / 180f;
 
 		[ExportSubgroup("Level Data")]
 		[Export]
 		CubeColor color = CubeColor.WHITE;
-        public CubeColor Color { get => color; set => color = value; }
-
+		public CubeColor Color { get => color; set => color = value; }
 
 
 
@@ -44,26 +43,51 @@ namespace GameKernel
 
 		GlobalConfigurations globalConfigurations;
 
-
 		bool isTransforming = false;
+		double transformedTime = 0.0f;
 
+		Vector3 targetPos, prePos;
 
-        public override void _Ready()
+		void Init()
+		{
+			targetPos = playerInstance.GlobalPosition;
+			prePos = playerInstance.GlobalPosition;
+			isTransforming = false;
+		}
+
+		public override void _Ready()
 		{
 			nodePath = GetPath();
 			globalConfigurations = GetNode<GlobalConfigurations>(GlobalConfigurations.NodePath);
+
+			Init();
+
+
+			ButtonLevelSelect.EntryLevelEvenet += (levelName) =>
+			{
+				playerInstance.GlobalPosition = LevelsManager.GetLevel(levelName).SpawnTrans.Origin;
+				camera.GlobalBasis = LevelsManager.GetLevel(levelName).SpawnTrans.Basis;
+
+				Init();
+			};
 		}
 
-		public override void _EnterTree()
-		{
-		}
 
 		public override void _Process(double delta)
 		{
-			if (!globalConfigurations.IsGamePause)
+			if (!globalConfigurations.IsGamePause && LevelsManager.CurrentLevel != LevelName.MAIN_MENU)
 			{
-				MovePlayer(delta);
 				RotateView(delta);
+
+				if (!isTransforming)
+				{
+					CheckDown();
+					TryMove();
+				}
+				else
+				{
+					MoveToTargetCube(delta);
+				}
 
 			}
 			else
@@ -80,28 +104,58 @@ namespace GameKernel
 			}
 		}
 
-		void MovePlayer(double delta)
+
+		void TryTarget(Vector3 tryPos)
 		{
-			// 获取输入
-			float inputX = Input.GetActionStrength("ui_left") - Input.GetActionStrength("ui_right");
-			float inputZ = Input.GetActionStrength("ui_up") - Input.GetActionStrength("ui_down");
-
-			Vector3 dirForwardVec = GetClosestAxisOfCamera();
-
-			Quaternion quaternionToDir = Quaternion.FromEuler(new Vector3(0, (float)Math.PI * 0.5f, 0));
-			Vector3 dirLeftVec = quaternionToDir * dirForwardVec;
-
-			Vector3 viewVec = inputX * dirLeftVec + inputZ * dirForwardVec;
-			if (viewVec.LengthSquared() > 0.001f)
+			if ((tryPos - prePos).Length() > 0.001f)
 			{
-				viewVec = viewVec.Normalized();
-			}
-			else
-			{
-				viewVec = Vector3.Zero;
-			}
+				bool canEntry = LevelsManager.CheckCanEntry(this, CubeBase.Vec3ConvertToVec3I(tryPos));
+				if (canEntry)
+				{
+					targetPos = tryPos;
+					isTransforming = true;
 
-			playerInstance.Translate(viewVec * moveSpeed * (float)delta);
+
+					LevelsManager.SignalExit(this, CubeBase.Vec3ConvertToVec3I(prePos));
+					LevelsManager.SignalEnter(this, CubeBase.Vec3ConvertToVec3I(targetPos));
+				}
+			}
+		}
+
+		void CheckDown()
+		{
+			if (!isTransforming)
+			{
+				Vector3 tryPos = prePos + Vector3.Down;
+				TryTarget(tryPos);
+			}
+		}
+
+		void TryMove()
+		{
+			if (!isTransforming)
+			{
+				float inputX = Input.GetActionStrength("ui_left") - Input.GetActionStrength("ui_right");
+				float inputUP = Input.GetActionStrength("ui_jump");
+				float inputZ = Input.GetActionStrength("ui_up") - Input.GetActionStrength("ui_down");
+
+				Vector3 inputVec3 = new Vector3(inputX, inputUP, inputZ);
+				Vector3.Axis axis = inputVec3.Abs().MaxAxisIndex();
+
+
+				Vector3 moveVecLocal = Vector3.Zero;
+				moveVecLocal[(int)axis] = Math.Sign(inputVec3[(int)axis]);
+
+
+				Vector3 dirForwardVec = GetClosestAxisOfCamera();
+				Quaternion quaternionToDir = Quaternion.FromEuler(new Vector3(0, (float)Math.PI * 0.5f, 0));
+				Vector3 dirLeftVec = quaternionToDir * dirForwardVec;
+
+				Vector3 moveVec = moveVecLocal.X * dirLeftVec + moveVecLocal.Y * Vector3.Up + moveVecLocal.Z * dirForwardVec;
+
+				Vector3 tryPos = prePos + moveVec;
+				TryTarget(tryPos);
+			}
 		}
 
 		void RotateView(double delta)
@@ -131,7 +185,7 @@ namespace GameKernel
 		{
 			Vector3 cameraLookAtDir = camera.Transform.Basis * Vector3.Forward;
 
-			int maxInd = Math.Abs(cameraLookAtDir.X) > Math.Abs(cameraLookAtDir.Y) ? 0 : 2;
+			int maxInd = Math.Abs(cameraLookAtDir.X) > Math.Abs(cameraLookAtDir.Z) ? 0 : 2;
 
 			int signOfMax = Math.Sign(cameraLookAtDir[maxInd]);
 
@@ -139,6 +193,31 @@ namespace GameKernel
 			result[maxInd] = signOfMax;
 
 			return result;
+		}
+
+		void MoveToTargetCube(double delta)
+		{
+			if (isTransforming)
+			{
+				transformedTime += delta;
+				transformedTime = Math.Clamp(transformedTime, 0, globalConfigurations.MoveTime);
+
+				Vector3 moveVec3 = targetPos - prePos;
+				playerInstance.GlobalPosition = prePos + moveVec3 * (float)transformedTime / globalConfigurations.MoveTime;
+
+				if (transformedTime >= globalConfigurations.MoveTime)
+				{
+					isTransforming = false;
+					transformedTime = 0;
+
+
+					LevelsManager.SignalExited(this, CubeBase.Vec3ConvertToVec3I(prePos));
+					LevelsManager.SignalEntered(this, CubeBase.Vec3ConvertToVec3I(targetPos));
+
+					playerInstance.GlobalPosition = playerInstance.GlobalPosition.Round();
+					prePos = playerInstance.GlobalPosition;
+				}
+			}
 		}
 
 	}

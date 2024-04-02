@@ -1,0 +1,134 @@
+[gd_scene load_steps=6 format=3 uid="uid://v1j46x883pqp"]
+
+[ext_resource type="PackedScene" uid="uid://cjnc25fajr46a" path="res://game/Scenes/levels/LevelBase.tscn" id="1_v274m"]
+[ext_resource type="PackedScene" uid="uid://d36jugacf5kcr" path="res://game/Scenes/levelComponents/SpawnPoint/SpawnPoint.tscn" id="2_8i1bk"]
+[ext_resource type="PackedScene" uid="uid://c40ojof70j8ss" path="res://game/Scenes/levelComponents/ColorDoor/ColorDoor.tscn" id="2_mtcug"]
+[ext_resource type="PackedScene" uid="uid://cmotakodmdymh" path="res://game/Scenes/levelComponents/DoorIndicate/DoorIndicate.tscn" id="2_rvie8"]
+[ext_resource type="PackedScene" uid="uid://byjeabf4yd1y3" path="res://game/Scenes/levelComponents/baseBarrierCube/baseBarrierCube.tscn" id="3_vujyd"]
+
+[node name="Level_00_01" instance=ExtResource("1_v274m")]
+levelName = 2
+
+[node name="SpawnPoint" parent="." index="0" instance=ExtResource("2_8i1bk")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1, 0)
+
+[node name="DoorIndicate" parent="." index="1" instance=ExtResource("2_rvie8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2, 6)
+
+[node name="Cubes" type="Node3D" parent="." index="2"]
+
+[node name="Node3D" type="Node3D" parent="Cubes" index="0"]
+
+[node name="element" parent="Cubes/Node3D" index="0" instance=ExtResource("3_vujyd")]
+
+[node name="element2" parent="Cubes/Node3D" index="1" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="element3" parent="Cubes/Node3D" index="2" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="element4" parent="Cubes/Node3D" index="3" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="element5" parent="Cubes/Node3D" index="4" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="element6" parent="Cubes/Node3D" index="5" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="element7" parent="Cubes/Node3D" index="6" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="Node3D2" type="Node3D" parent="Cubes" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+
+[node name="element" parent="Cubes/Node3D2" index="0" instance=ExtResource("3_vujyd")]
+
+[node name="element2" parent="Cubes/Node3D2" index="1" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="element3" parent="Cubes/Node3D2" index="2" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="element4" parent="Cubes/Node3D2" index="3" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="element5" parent="Cubes/Node3D2" index="4" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="element6" parent="Cubes/Node3D2" index="5" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Node3D3" type="Node3D" parent="Cubes" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
+
+[node name="element" parent="Cubes/Node3D3" index="0" instance=ExtResource("3_vujyd")]
+
+[node name="element2" parent="Cubes/Node3D3" index="1" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="element3" parent="Cubes/Node3D3" index="2" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="element4" parent="Cubes/Node3D3" index="3" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="element5" parent="Cubes/Node3D3" index="4" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="element6" parent="Cubes/Node3D3" index="5" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Node3D5" type="Node3D" parent="Cubes" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
+
+[node name="element" parent="Cubes/Node3D5" index="0" instance=ExtResource("3_vujyd")]
+
+[node name="element2" parent="Cubes/Node3D5" index="1" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="element3" parent="Cubes/Node3D5" index="2" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="element4" parent="Cubes/Node3D5" index="3" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="element5" parent="Cubes/Node3D5" index="4" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="element6" parent="Cubes/Node3D5" index="5" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Node3D4" type="Node3D" parent="Cubes" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+
+[node name="element" parent="Cubes/Node3D4" index="0" instance=ExtResource("3_vujyd")]
+
+[node name="element2" parent="Cubes/Node3D4" index="1" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="element3" parent="Cubes/Node3D4" index="2" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="element4" parent="Cubes/Node3D4" index="3" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="element5" parent="Cubes/Node3D4" index="4" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="element6" parent="Cubes/Node3D4" index="5" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="element3" parent="Cubes" index="5" instance=ExtResource("2_mtcug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+isOutDoor = true
+nextLevel = 3
+
+[node name="element" parent="Cubes" index="6" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+
+[node name="element2" parent="Cubes" index="7" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
+
+[node name="element4" parent="Cubes" index="8" instance=ExtResource("3_vujyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6)

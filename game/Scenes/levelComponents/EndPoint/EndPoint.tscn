@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://fvqvjsfa2dfa"]
+
+[ext_resource type="PackedScene" uid="uid://ds8mbwnnd6cfd" path="res://game/Scenes/levelComponents/CubeBase.tscn" id="1_5iajy"]
+[ext_resource type="Script" path="res://game/Scenes/levelComponents/EndPoint/EndPoint.cs" id="2_visn2"]
+
+[node name="EndPoint" instance=ExtResource("1_5iajy")]
+script = ExtResource("2_visn2")

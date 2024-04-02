@@ -1,8 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cix3atgsypxyk"]
+[gd_scene load_steps=5 format=3 uid="uid://cix3atgsypxyk"]
 
-[ext_resource type="PackedScene" uid="uid://dpq0fo2s1vc7" path="res://ModelSourceFile/level/element.glb" id="1_26os5"]
+[ext_resource type="PackedScene" uid="uid://dpq0fo2s1vc7" path="res://SourceFiles/level/element.glb" id="1_26os5"]
 [ext_resource type="Script" path="res://game/Scenes/levelComponents/DyeDoor/DyeDoor.cs" id="2_bw6sr"]
+[ext_resource type="Shader" uid="uid://col67pkx34stu" path="res://game/Scenes/levelComponents/DyeDoor/DyeDoor.tres" id="3_a8rhw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxaui"]
+render_priority = 0
+shader = ExtResource("3_a8rhw")
+shader_parameter/Color = Color(1, 1, 1, 1)
 
 [node name="DyeDoor" instance=ExtResource("1_26os5")]
 script = ExtResource("2_bw6sr")
 cubeColor = 4
+cubeType = 4
+
+[node name="Cube" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_kxaui")

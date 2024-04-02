@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dayjotmll6y0r"]
 
-[ext_resource type="PackedScene" uid="uid://2mtacbikrnkd" path="res://ModelSourceFile/player/player.glb" id="1_b0yjo"]
-[ext_resource type="Shader" uid="uid://ck7dj8r6nfs63" path="res://ModelSourceFile/player/player.tres" id="2_2novy"]
+[ext_resource type="PackedScene" uid="uid://2mtacbikrnkd" path="res://SourceFiles/player/player.glb" id="1_b0yjo"]
+[ext_resource type="Shader" uid="uid://ck7dj8r6nfs63" path="res://SourceFiles/player/player.tres" id="2_2novy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_onxog"]
 render_priority = 0

@@ -1,32 +1,42 @@
-using GameKernel;
 using Godot;
 using System;
 
-public partial class DyeDoor : CubeBase
+namespace GameKernel
 {
-	[Export]
-	CubeColor cubeColor;
 
-
-	public override void _Ready()
+	public partial class DyeDoor : CubeBase
 	{
+		[Export]
+		CubeColor cubeColor;
+
+		[Export]
+		MeshInstance3D cubeRef;
+
+		ShaderMaterial material;
+
+
+		public override void _Ready()
+		{
+			material = cubeRef.MaterialOverride as ShaderMaterial;
+
+			material.SetShaderParameter("Color", Colors.GetColorVec4(cubeColor));
+		}
+
+		public override void _Process(double delta)
+		{
+		}
+
+		public override void EnterCube(Player player)
+		{
+			player.Color = cubeColor;
+		}
+
+
+		public override void ExitedCube(Player player)
+		{
+			Visible = false;
+			isActive = false;
+		}
+
 	}
-
-	public override void _Process(double delta)
-	{
-	}
-
-	public override void EntryCube(Player player)
-	{
-		player.Color = cubeColor;
-	}
-
-
-	public override void ExitCube(Player player)
-	{
-		Visible = false;
-	}
-
-
-
 }

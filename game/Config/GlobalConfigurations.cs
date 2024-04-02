@@ -10,6 +10,9 @@ namespace GameKernel
 		[ExportGroup("Player Settings")]
 		[Export]
 		float sensitivity = 0.1f;
+		[Export]
+		float moveSpeed = 0.5f;
+
 
 		[ExportGroup("System Status")]
 		[Export]
@@ -20,13 +23,14 @@ namespace GameKernel
 
 
 		public float Sensitivity { get => sensitivity; set => sensitivity = value; }
+		public float MoveTime { get => moveSpeed; set => moveSpeed = value; }
+
 
 		public bool IsGamePause { get => IsAnyUIOn; set => IsAnyUIOn = value; }
 
 		public override void _Ready()
 		{
 			NodePath = GetPath();
-			GD.Print(NodePath);
 		}
 
 		public override void _Process(double delta)
