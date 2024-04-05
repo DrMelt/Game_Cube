@@ -1,7 +1,51 @@
-[gd_scene load_steps=50 format=3 uid="uid://c40ojof70j8ss"]
+[gd_scene load_steps=56 format=3 uid="uid://c40ojof70j8ss"]
 
 [ext_resource type="PackedScene" uid="uid://dpq0fo2s1vc7" path="res://SourceFiles/level/element.glb" id="1_iiv3j"]
 [ext_resource type="Script" path="res://game/Scenes/levelComponents/ColorDoor/ColorDoor.cs" id="2_v6mfr"]
+[ext_resource type="Shader" uid="uid://ob6n2lecxn6y" path="res://game/Scenes/levelComponents/ColorDoor/ZArrow.tres" id="3_ljqs6"]
+[ext_resource type="Script" path="res://game/Scenes/levelComponents/ColorDoor/ZArrow.cs" id="4_wi51y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3bxp0"]
+render_priority = 0
+shader = ExtResource("3_ljqs6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvuxq"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3jvqy"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1.00001, 1.00001, 1),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 6, 0, 4, 0, 0, 0, 2, 0, 6, 0, 3, 0, 6, 0, 2, 0, 3, 0, 7, 0, 6, 0, 7, 0, 4, 0, 6, 0, 7, 0, 5, 0, 4, 0, 5, 0, 3, 0, 1, 0, 5, 0, 7, 0, 3, 0, 1, 0, 2, 0, 0, 0, 1, 0, 3, 0, 2, 0, 5, 0, 0, 0, 4, 0, 5, 0, 1, 0, 0, 0),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 254, 255, 254, 255, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qxfas"]
+resource_name = "element_Cube"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1.00001, 1.00001, 1),
+"attribute_data": PackedByteArray(255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 191, 255, 159, 255, 191, 255, 223, 255, 127, 255, 95, 255, 191, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 255, 255, 255, 159, 0, 0, 255, 223, 255, 63, 255, 95, 255, 255, 255, 31, 255, 63, 255, 95, 0, 0),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(1, 0, 20, 0, 14, 0, 1, 0, 7, 0, 20, 0, 10, 0, 19, 0, 6, 0, 10, 0, 23, 0, 19, 0, 21, 0, 12, 0, 18, 0, 21, 0, 15, 0, 12, 0, 16, 0, 9, 0, 3, 0, 16, 0, 22, 0, 9, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 17, 0, 0, 0, 13, 0, 17, 0, 4, 0, 0, 0),
+"material": SubResource("StandardMaterial3D_gvuxq"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 0, 0, 255, 255, 254, 255, 254, 255, 0, 0, 255, 255, 254, 255, 254, 255, 0, 0, 84, 213, 254, 255, 0, 0, 0, 0, 255, 191, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 84, 213, 254, 255, 254, 255, 255, 255, 255, 191, 254, 255, 254, 255, 255, 255, 255, 255, 254, 255, 254, 255, 255, 255, 84, 213, 254, 255, 0, 0, 255, 255, 255, 191, 254, 255, 0, 0, 255, 255, 255, 191, 254, 255, 0, 0, 255, 255, 84, 213, 0, 0, 254, 255, 0, 0, 84, 213, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 255, 255, 84, 213, 0, 0, 254, 255, 255, 255, 255, 191, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 84, 213, 0, 0, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 255, 191, 255, 191, 255, 127, 255, 191, 170, 42, 170, 42, 0, 0, 255, 127, 255, 191, 255, 191, 170, 42, 170, 42, 255, 255, 255, 255, 255, 127, 255, 191, 170, 42, 170, 42, 0, 0, 255, 127, 255, 255, 255, 255, 170, 42, 170, 42, 84, 213, 84, 213, 255, 191, 255, 191, 255, 127, 255, 191, 84, 213, 84, 213, 0, 0, 255, 127, 255, 191, 255, 191, 84, 213, 84, 213, 255, 255, 255, 255, 255, 127, 255, 191, 84, 213, 84, 213, 0, 0, 255, 127, 255, 255, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3jvqy")
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_x0ti7"]
 constant = 0.2
@@ -595,5 +639,12 @@ script = ExtResource("2_v6mfr")
 cubeRef = NodePath("Cube")
 cubeType = 2
 
-[node name="Cube" parent="." index="0"]
+[node name="ZArrow" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_3bxp0")
+mesh = SubResource("ArrayMesh_qxfas")
+skeleton = NodePath("")
+script = ExtResource("4_wi51y")
+
+[node name="Cube" parent="." index="1"]
 material_override = SubResource("ShaderMaterial_d4b5p")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://djpf133iw6cx8"]
+
+[ext_resource type="PackedScene" uid="uid://ds8mbwnnd6cfd" path="res://game/Scenes/levelComponents/CubeBase.tscn" id="1_qyxcl"]
+[ext_resource type="Script" path="res://game/Scenes/levelComponents/Rock/Rock.cs" id="2_4qxs6"]
+[ext_resource type="Shader" uid="uid://drgdmvrfs6kpn" path="res://game/Scenes/levelComponents/Rock/Rock.tres" id="2_kbyt2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mu6ej"]
+render_priority = 0
+shader = ExtResource("2_kbyt2")
+
+[node name="Rock" instance=ExtResource("1_qyxcl")]
+script = ExtResource("2_4qxs6")
+cubeType = 5
+
+[node name="Cube" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_mu6ej")

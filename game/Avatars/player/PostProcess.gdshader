@@ -8,6 +8,8 @@ uniform float color_bloom_alpha = 0.1;
 uniform float color_bloom_range = 0.9;
 uniform float color_bloom_noise_weight = 0.1;
 
+uniform vec4 cubeColor = vec4(1,1,1,1);
+
 #define INTERPOLANT 1
 
 vec3 hash( vec3 p ) // replace this by something better
@@ -78,7 +80,7 @@ void fragment() {
 	//EMISSION = vec3(-log((1.0-depth)) * 0.01);
 	EMISSION = vec3(camera_depth * 0.1);
 	
-	EMISSION = vec3(1.0);
+	EMISSION = cubeColor.xyz;
 	ALPHA = cube_color_bloom_value(SCREEN_UV);
 }
 

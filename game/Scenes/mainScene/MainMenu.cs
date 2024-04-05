@@ -2,24 +2,41 @@ using GameKernel;
 using Godot;
 using System;
 
-public partial class MainMenu : Control
+namespace GameKernel
 {
-
-	public override void _Ready()
+	public partial class MainMenu : Control
 	{
-		ButtonLevelSelect.EntryLevelEvenet += (levelName) =>
+		[Export]
+		Button startButtonRef;
+
+		public override void _Ready()
 		{
-			Visible = false;
-		};
+			startButtonRef.GrabFocus();
 
-		ButtonBackMenu.BackMenuEvenet += () =>
+			ButtonLevelSelect.EntryLevelEvenet += (levelName) =>
+				{
+					Visible = false;
+				};
+
+			ButtonBackMenu.BackMenuEvenet += () =>
+					{
+						Visible = true;
+					};
+
+			VisibilityChanged += () =>
+			{
+				if (Visible)
+				{
+					startButtonRef.GrabFocus();
+				}
+			};
+		}
+
+
+
+		public override void _Process(double delta)
 		{
-			Visible = true;
-		};
-	}
+		}
 
-
-	public override void _Process(double delta)
-	{
 	}
 }

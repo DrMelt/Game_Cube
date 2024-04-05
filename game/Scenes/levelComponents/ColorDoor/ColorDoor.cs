@@ -8,6 +8,9 @@ namespace GameKernel
 	{
 		[Export]
 		bool isOutDoor = false;
+		[Export]
+		Dir outDir = Dir.FORWORD;
+
 
 		[Export]
 		LevelName nextLevel = LevelName.NULL;
@@ -58,7 +61,9 @@ namespace GameKernel
 
 		public override void ExitCube(Player player)
 		{
-			if (isOutDoor)
+			Vector3 outDirVec = GlobalBasis * GetDirVec(outDir);
+
+			if (isOutDoor && outDirVec.Dot(player.TryVec) > 0.5f)
 			{
 				LevelsManager.CurrentLevel = nextLevel;
 			}
@@ -76,7 +81,9 @@ namespace GameKernel
 				return true;
 			}
 
-			CubeColor doorColorNOT = ~doorColor;
+			CubeColor doorColorNOT = (CubeColor)(CubeColor.WHITE - doorColor);
+
+			var temp = doorColorNOT & player.Color;
 
 			bool hasNotColor = (doorColorNOT & player.Color) > 0;
 			return !hasNotColor;

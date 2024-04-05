@@ -7,6 +7,10 @@ namespace GameKernel
 	{
 		[Export]
 		bool visibleInit = false;
+
+		[Export]
+		Button buttonBackMenu;
+
 		public override void _Ready()
 		{
 			Visible = visibleInit;
@@ -20,6 +24,14 @@ namespace GameKernel
 			ButtonBackMenu.BackMenuEvenet += () =>
 			{
 				Visible = false;
+			};
+
+			VisibilityChanged += () =>
+			{
+				if (Visible)
+				{
+					buttonBackMenu.GrabFocus();
+				}
 			};
 		}
 

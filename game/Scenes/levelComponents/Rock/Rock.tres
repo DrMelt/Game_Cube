@@ -1,0 +1,82 @@
+[gd_resource type="VisualShader" load_steps=8 format=3 uid="uid://drgdmvrfs6kpn"]
+
+[ext_resource type="Texture2D" uid="uid://cwaletcn0dceb" path="res://SourceFiles/Rock/Rock_ao.png" id="1_x41gw"]
+[ext_resource type="Texture2D" uid="uid://byrfddfiya73y" path="res://SourceFiles/Rock/Rock_normal.png" id="2_pyoqg"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_aor0d"]
+expanded_output_ports = [0]
+texture = ExtResource("1_x41gw")
+
+[sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_iktqf"]
+default_input_values = [1, 0.5, 2, 1.0, 3, 0.0, 4, 0.5]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ocqvr"]
+texture = ExtResource("2_pyoqg")
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_on15x"]
+constant = 1.0
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_8adft"]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2;
+uniform sampler2D tex_frg_5 : hint_normal;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+	float n_out4p0;
+// Remap:4
+	float n_in4p1 = 0.50000;
+	float n_in4p2 = 1.00000;
+	float n_in4p3 = 0.00000;
+	float n_in4p4 = 0.50000;
+	{
+		float __input_range = n_in4p2 - n_in4p1;
+		float __output_range = n_in4p4 - n_in4p3;
+		n_out4p0 = n_in4p3 + __output_range * ((n_out2p0.x - n_in4p1) / __input_range);
+	}
+
+
+// FloatConstant:7
+	float n_out7p0 = 0.000000;
+
+
+// FloatConstant:6
+	float n_out6p0 = 1.000000;
+
+
+// Texture2D:5
+	vec4 n_out5p0 = texture(tex_frg_5, UV);
+
+
+// Output:0
+	ALBEDO = vec3(n_out4p0);
+	METALLIC = n_out7p0;
+	ROUGHNESS = n_out6p0;
+	SPECULAR = n_out7p0;
+	NORMAL_MAP = vec3(n_out5p0.xyz);
+
+
+}
+"
+nodes/fragment/0/position = Vector2(1100, 340)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_aor0d")
+nodes/fragment/2/position = Vector2(320, 300)
+nodes/fragment/4/node = SubResource("VisualShaderNodeRemap_iktqf")
+nodes/fragment/4/position = Vector2(600, 340)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_ocqvr")
+nodes/fragment/5/position = Vector2(320, 620)
+nodes/fragment/6/node = SubResource("VisualShaderNodeFloatConstant_on15x")
+nodes/fragment/6/position = Vector2(780, 420)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatConstant_8adft")
+nodes/fragment/7/position = Vector2(780, 500)
+nodes/fragment/connections = PackedInt32Array(4, 0, 0, 0, 6, 0, 0, 3, 7, 0, 0, 2, 7, 0, 0, 4, 2, 0, 4, 0, 5, 0, 0, 9)

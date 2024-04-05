@@ -6,20 +6,23 @@
 [ext_resource type="Script" path="res://game/Avatars/player/PostProcessing3D.cs" id="3_inb7j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iyrjr"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_ccqjh")
-shader_parameter/radian_scale = 15.09
-shader_parameter/color_bloom_alpha = 0.015
+shader_parameter/radian_scale = 15.465
+shader_parameter/color_bloom_alpha = 0.4
 shader_parameter/color_bloom_range = 0.8
-shader_parameter/color_bloom_noise_weight = 0.1
+shader_parameter/color_bloom_noise_weight = 0.01
+shader_parameter/cubeColor = Vector4(1, 1, 1, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_85vvn"]
 size = Vector2(2, 2)
 
-[node name="PlayerRoot" type="Node3D" node_paths=PackedStringArray("camera", "playerInstance")]
+[node name="PlayerRoot" type="Node3D" node_paths=PackedStringArray("camera", "playerInstance", "postProcessInstance")]
 script = ExtResource("1_xoh4g")
 camera = NodePath("PlayerInstance/Camera3D")
 playerInstance = NodePath("PlayerInstance")
+postProcessInstance = NodePath("PlayerInstance/Camera3D/PostProcessing3D")
 
 [node name="PlayerInstance" parent="." instance=ExtResource("2_2nbjl")]
 
@@ -27,10 +30,13 @@ playerInstance = NodePath("PlayerInstance")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="PostProcessing3D" type="MeshInstance3D" parent="PlayerInstance/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.22577)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.22577)
+visible = false
 material_override = SubResource("ShaderMaterial_iyrjr")
 cast_shadow = 0
+extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_85vvn")
 script = ExtResource("3_inb7j")
+isUsingTriangleMesh = true
 
 [editable path="PlayerInstance"]

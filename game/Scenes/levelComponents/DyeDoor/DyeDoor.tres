@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://col67pkx34stu"]
+[gd_resource type="VisualShader" load_steps=12 format=3 uid="uid://col67pkx34stu"]
 
 [ext_resource type="Texture2D" uid="uid://dt5rkdm7202i1" path="res://SourceFiles/level/Cube_uv.png" id="1_3yviv"]
 
@@ -14,6 +14,24 @@ default_value_enabled = true
 
 [sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_hjbh6"]
 default_input_values = [1, 0.2, 2, 1.0, 3, 0.0, 4, 1.0]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_i64yv"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_dckfq"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(0, 0.5, 0)]
+operator = 1
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_4x8am"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_di8xo"]
+constant = 0.999
+
+[sub_resource type="VisualShaderNodeVec3Constant" id="VisualShaderNodeVec3Constant_2g65d"]
+constant = Vector3(0, 0.5, 0)
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_o7gtf"]
 
 [resource]
 code = "shader_type spatial;
@@ -60,6 +78,20 @@ void fragment() {
 }
 "
 modes/cull = 2
+nodes/vertex/0/position = Vector2(760, 120)
+nodes/vertex/3/node = SubResource("VisualShaderNodeInput_i64yv")
+nodes/vertex/3/position = Vector2(-215.115, 95.2203)
+nodes/vertex/4/node = SubResource("VisualShaderNodeVectorOp_dckfq")
+nodes/vertex/4/position = Vector2(158.922, 205.223)
+nodes/vertex/5/node = SubResource("VisualShaderNodeVectorOp_4x8am")
+nodes/vertex/5/position = Vector2(318.2, 293.878)
+nodes/vertex/6/node = SubResource("VisualShaderNodeFloatConstant_di8xo")
+nodes/vertex/6/position = Vector2(64.885, 415.22)
+nodes/vertex/7/node = SubResource("VisualShaderNodeVec3Constant_2g65d")
+nodes/vertex/7/position = Vector2(-315.115, 255.22)
+nodes/vertex/8/node = SubResource("VisualShaderNodeVectorOp_o7gtf")
+nodes/vertex/8/position = Vector2(464.885, 135.22)
+nodes/vertex/connections = PackedInt32Array(3, 0, 4, 0, 4, 0, 5, 0, 6, 0, 5, 1, 7, 0, 4, 1, 7, 0, 8, 0, 5, 0, 8, 1)
 nodes/fragment/2/node = SubResource("VisualShaderNodeFloatConstant_fegvo")
 nodes/fragment/2/position = Vector2(210.556, 134.027)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_n3305")

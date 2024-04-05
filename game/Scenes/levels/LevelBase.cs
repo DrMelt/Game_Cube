@@ -31,7 +31,8 @@ namespace GameKernel
 
 			List<CubeBase> cubes = new List<CubeBase>();
 			List<Vector3I> cubeCoords = new List<Vector3I>();
-			Transform3D spawnTrans = new Transform3D();
+			SpawnPoint spawnPoint = null;
+			
 			foreach (Node child in childrenAll)
 			{
 				CubeBase cubeBase = child as CubeBase;
@@ -44,11 +45,10 @@ namespace GameKernel
 				cubes.Add(cubeBase);
 				cubeCoords.Add(CubeBase.Vec3ConvertToVec3I(cubeBase.GlobalPosition));
 
-				SpawnPoint spawnPoint = cubeBase as SpawnPoint;
-				if (spawnPoint != null)
+				SpawnPoint spawnPointTry = cubeBase as SpawnPoint;
+				if (spawnPointTry != null)
 				{
-					spawnTrans = spawnPoint.GlobalTransform;
-					// GD.Print(levelName + ": " + spawnPoint + "  " + spawnTrans);
+					spawnPoint = spawnPointTry;
 				}
 			}
 
@@ -81,7 +81,7 @@ namespace GameKernel
 				newLevelContent.SetCube(cube);
 			}
 
-			newLevelContent.SpawnTrans = spawnTrans;
+			newLevelContent.SpawnPointInstance = spawnPoint;
 
 			LevelsManager.SetLevel(newLevelContent);
 		}

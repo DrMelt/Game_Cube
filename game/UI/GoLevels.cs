@@ -8,7 +8,8 @@ namespace GameKernel
 	{
 		[Export]
 		Control levelSelectRef;
-
+		[Export]
+		Control mainMenuRef;
 		public override void _Ready()
 		{
 		}
@@ -19,6 +20,7 @@ namespace GameKernel
 		public override void _Pressed()
 		{
 			levelSelectRef.Visible = true;
+			mainMenuRef.Visible = false;
 		}
 	}
 }

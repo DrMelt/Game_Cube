@@ -12,6 +12,11 @@ namespace GameKernel
 		LEVEL00_02,
 		LEVEL00_03,
 		LEVEL00_04,
+		LEVEL00_05,
+		LEVEL00_06,
+		LEVEL01_01,
+		LEVEL01_02,
+		LEVEL01_03,
 		MAX_LEVEL_NUM
 	}
 
@@ -27,11 +32,13 @@ namespace GameKernel
 		List<CubeBase> cubes = null;
 
 
-		Transform3D spawnTrans = new Transform3D();
+		SpawnPoint spawnPoint = null;
+		public SpawnPoint SpawnPointInstance { get => spawnPoint; set => spawnPoint = value; }
 
-		public Transform3D SpawnTrans { get => spawnTrans; set => spawnTrans = value; }
 
+		public Transform3D SpawnTrans { get => spawnPoint.GlobalTransform; }
 
+		public CubeColor StartColor { get => spawnPoint.PlayerStartColor; }
 
 		public LevelContent(Vector3I startPos, Vector3I size, LevelName levelName)
 		{
@@ -59,7 +66,7 @@ namespace GameKernel
 				cubeWordPos.X > startPos.X + size.X - 1 || cubeWordPos.Y > startPos.Y + size.Y - 1 || cubeWordPos.Z > startPos.Z + size.Z - 1
 			))
 			{
-				GD.PrintErr("Out of range");
+				// GD.PrintErr($"Out of LevelContent {levelName} range");
 				return true;
 			}
 			return false;
@@ -130,6 +137,8 @@ namespace GameKernel
 			}
 
 			ButtonLevelSelect.EntryLevelEvenet += EntryLevel;
+
+			RetryButton.RetryButtonPressedEvenet += () => { EntryLevel(currentLevel); };
 		}
 
 		void EntryLevel(LevelName levelName)
@@ -138,17 +147,22 @@ namespace GameKernel
 			ReSetAllLevels();
 		}
 
-		void ReSetLevel()
+
+		void ReSetLevel(LevelName levelName)
 		{
-			LevelContent levelContent = levels[(int)currentLevel];
+			LevelContent levelContent = levels[(int)levelName];
 			if (levelContent == null)
 			{
-				GD.PrintErr("LevelContent is null");
+				GD.PrintErr($"LevelContent {currentLevel} is null");
 			}
 			else
 			{
 				levelContent.ReSet();
 			}
+		}
+		void ReSetLevel()
+		{
+			ReSetLevel(currentLevel);
 		}
 
 		void ReSetAllLevels()
@@ -157,12 +171,10 @@ namespace GameKernel
 			{
 				if (level == null)
 				{
-					GD.PrintErr("LevelContent is null");
+					continue;
 				}
-				else
-				{
-					level.ReSet();
-				}
+
+				level.ReSet();
 			}
 		}
 

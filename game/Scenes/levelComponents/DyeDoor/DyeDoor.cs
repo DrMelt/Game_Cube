@@ -28,7 +28,10 @@ namespace GameKernel
 
 		public override void EnterCube(Player player)
 		{
-			player.Color = cubeColor;
+			if (isActive)
+			{
+				player.Color = cubeColor;
+			}
 		}
 
 
@@ -38,5 +41,11 @@ namespace GameKernel
 			isActive = false;
 		}
 
-	}
+        public override void ReSet()
+        {
+            base.ReSet();
+			Visible = true;
+        }
+
+    }
 }

@@ -10,9 +10,17 @@ namespace GameKernel
 		[Export]
 		bool visibleInit = false;
 
+		[Export]
+		Button focusInitButton;
 
 		public override void _Ready()
 		{
+			Visible = false;
+
+			EndPoint.EnteredEndPointEvent += () =>
+			{
+				Visible = true;
+			};
 
 			ButtonLevelSelect.EntryLevelEvenet += (levelName) =>
 			{
@@ -22,6 +30,14 @@ namespace GameKernel
 			ButtonBackMenu.BackMenuEvenet += () =>
 			{
 				Visible = false;
+			};
+
+			VisibilityChanged += () =>
+			{
+				if (Visible)
+				{
+					focusInitButton.GrabFocus();
+				}
 			};
 		}
 

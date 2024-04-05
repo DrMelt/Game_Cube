@@ -1,0 +1,489 @@
+[gd_scene load_steps=7 format=3 uid="uid://1njuoq6lsbwy"]
+
+[ext_resource type="PackedScene" uid="uid://cjnc25fajr46a" path="res://game/Scenes/levels/LevelBase.tscn" id="1_5r5h4"]
+[ext_resource type="PackedScene" uid="uid://d36jugacf5kcr" path="res://game/Scenes/levelComponents/SpawnPoint/SpawnPoint.tscn" id="2_30txt"]
+[ext_resource type="PackedScene" uid="uid://cix3atgsypxyk" path="res://game/Scenes/levelComponents/DyeDoor/DyeDoor.tscn" id="2_gin2f"]
+[ext_resource type="PackedScene" uid="uid://c40ojof70j8ss" path="res://game/Scenes/levelComponents/ColorDoor/ColorDoor.tscn" id="2_i2epm"]
+[ext_resource type="PackedScene" uid="uid://cmotakodmdymh" path="res://game/Scenes/levelComponents/DoorIndicate/DoorIndicate.tscn" id="2_nbwhv"]
+[ext_resource type="PackedScene" uid="uid://byjeabf4yd1y3" path="res://game/Scenes/levelComponents/baseBarrierCube/baseBarrierCube.tscn" id="3_k4mvg"]
+
+[node name="Level_00_06" instance=ExtResource("1_5r5h4")]
+levelName = 7
+
+[node name="DoorIndicate" parent="." index="0" instance=ExtResource("2_nbwhv")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7, 4, 0)
+
+[node name="ColorDoor3" parent="." index="1" instance=ExtResource("2_i2epm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 0)
+isOutDoor = true
+nextLevel = 3
+
+[node name="DyeDoor" parent="." index="2" instance=ExtResource("2_gin2f")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 3, 0)
+cubeColor = 2
+
+[node name="ColorDoor" parent="." index="3" instance=ExtResource("2_i2epm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 1, 0)
+
+[node name="ColorDoor2" parent="." index="4" instance=ExtResource("2_i2epm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 2, 0)
+
+[node name="SpawnPoint" parent="." index="5" instance=ExtResource("2_30txt")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 1, 0)
+
+[node name="BarrierCubes" type="Node3D" parent="." index="6"]
+
+[node name="BarrierCube" parent="BarrierCubes" index="0" instance=ExtResource("3_k4mvg")]
+
+[node name="BarrierCube2" parent="BarrierCubes" index="1" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="BarrierCube3" parent="BarrierCubes" index="2" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="BarrierCube4" parent="BarrierCubes" index="3" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+
+[node name="BarrierCube5" parent="BarrierCubes" index="4" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1)
+
+[node name="BarrierCube6" parent="BarrierCubes" index="5" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
+
+[node name="BarrierCube7" parent="BarrierCubes" index="6" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+
+[node name="BarrierCube8" parent="BarrierCubes" index="7" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="BarrierCube9" parent="BarrierCubes" index="8" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="BarrierCube10" parent="BarrierCubes" index="9" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="BarrierCube11" parent="BarrierCubes" index="10" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
+
+[node name="BarrierCube12" parent="BarrierCubes" index="11" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 1)
+
+[node name="BarrierCube13" parent="BarrierCubes" index="12" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -1)
+
+[node name="BarrierCube14" parent="BarrierCubes" index="13" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
+
+[node name="BarrierCube15" parent="BarrierCubes" index="14" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="BarrierCube16" parent="BarrierCubes" index="15" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="BarrierCube17" parent="BarrierCubes" index="16" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="BarrierCube18" parent="BarrierCubes" index="17" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 1)
+
+[node name="BarrierCube19" parent="BarrierCubes" index="18" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 1)
+
+[node name="BarrierCube20" parent="BarrierCubes" index="19" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -1)
+
+[node name="BarrierCube21" parent="BarrierCubes" index="20" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -1)
+
+[node name="BarrierCube22" parent="BarrierCubes" index="21" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="BarrierCube23" parent="BarrierCubes" index="22" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+
+[node name="BarrierCube24" parent="BarrierCubes" index="23" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+
+[node name="BarrierCube25" parent="BarrierCubes" index="24" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 1)
+
+[node name="BarrierCube26" parent="BarrierCubes" index="25" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 1)
+
+[node name="BarrierCube27" parent="BarrierCubes" index="26" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -1)
+
+[node name="BarrierCube28" parent="BarrierCubes" index="27" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -1)
+
+[node name="BarrierCube29" parent="BarrierCubes" index="28" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="BarrierCube30" parent="BarrierCubes" index="29" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+
+[node name="BarrierCube31" parent="BarrierCubes" index="30" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+
+[node name="BarrierCube32" parent="BarrierCubes" index="31" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 1)
+
+[node name="BarrierCube33" parent="BarrierCubes" index="32" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 1)
+
+[node name="BarrierCube34" parent="BarrierCubes" index="33" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -1)
+
+[node name="BarrierCube35" parent="BarrierCubes" index="34" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -1)
+
+[node name="BarrierCube36" parent="BarrierCubes" index="35" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="BarrierCube37" parent="BarrierCubes" index="36" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1)
+
+[node name="BarrierCube38" parent="BarrierCubes" index="37" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1)
+
+[node name="BarrierCube39" parent="BarrierCubes" index="38" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 1)
+
+[node name="BarrierCube40" parent="BarrierCubes" index="39" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 1)
+
+[node name="BarrierCube41" parent="BarrierCubes" index="40" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -1)
+
+[node name="BarrierCube42" parent="BarrierCubes" index="41" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -1)
+
+[node name="BarrierCube43" parent="BarrierCubes" index="42" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 0)
+
+[node name="BarrierCube44" parent="BarrierCubes" index="43" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 1)
+
+[node name="BarrierCube45" parent="BarrierCubes" index="44" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 1)
+
+[node name="BarrierCube46" parent="BarrierCubes" index="45" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 1)
+
+[node name="BarrierCube47" parent="BarrierCubes" index="46" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="BarrierCube48" parent="BarrierCubes" index="47" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 1)
+
+[node name="BarrierCube49" parent="BarrierCubes" index="48" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 1)
+
+[node name="BarrierCube50" parent="BarrierCubes" index="49" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 1)
+
+[node name="BarrierCube51" parent="BarrierCubes" index="50" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 0)
+
+[node name="BarrierCube52" parent="BarrierCubes" index="51" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 0)
+
+[node name="BarrierCube53" parent="BarrierCubes" index="52" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="BarrierCube54" parent="BarrierCubes" index="53" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1)
+
+[node name="BarrierCube55" parent="BarrierCubes" index="54" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+
+[node name="BarrierCube56" parent="BarrierCubes" index="55" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 1)
+
+[node name="BarrierCube57" parent="BarrierCubes" index="56" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 1)
+
+[node name="BarrierCube58" parent="BarrierCubes" index="57" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -1)
+
+[node name="BarrierCube59" parent="BarrierCubes" index="58" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -1)
+
+[node name="BarrierCube60" parent="BarrierCubes" index="59" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -1)
+
+[node name="BarrierCube61" parent="BarrierCubes" index="60" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -1)
+
+[node name="BarrierCube62" parent="BarrierCubes" index="61" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, -1)
+
+[node name="BarrierCube63" parent="BarrierCubes" index="62" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -2)
+
+[node name="BarrierCube64" parent="BarrierCubes" index="63" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -2)
+
+[node name="BarrierCube65" parent="BarrierCubes" index="64" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, -2)
+
+[node name="BarrierCube66" parent="BarrierCubes" index="65" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, -3)
+
+[node name="BarrierCube67" parent="BarrierCubes" index="66" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, -1)
+
+[node name="BarrierCube68" parent="BarrierCubes" index="67" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, -2)
+
+[node name="BarrierCube69" parent="BarrierCubes" index="68" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -4)
+
+[node name="BarrierCube70" parent="BarrierCubes" index="69" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -5)
+
+[node name="BarrierCube71" parent="BarrierCubes" index="70" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -3)
+
+[node name="BarrierCube72" parent="BarrierCubes" index="71" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -3)
+
+[node name="BarrierCube73" parent="BarrierCubes" index="72" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, -3)
+
+[node name="BarrierCube74" parent="BarrierCubes" index="73" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+
+[node name="BarrierCube75" parent="BarrierCubes" index="74" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -4)
+
+[node name="BarrierCube76" parent="BarrierCubes" index="75" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, -4)
+
+[node name="BarrierCube77" parent="BarrierCubes" index="76" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -5)
+
+[node name="BarrierCube78" parent="BarrierCubes" index="77" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -5)
+
+[node name="BarrierCube79" parent="BarrierCubes" index="78" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, -5)
+
+[node name="BarrierCube80" parent="BarrierCubes" index="79" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2)
+
+[node name="BarrierCube81" parent="BarrierCubes" index="80" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -2)
+
+[node name="BarrierCube82" parent="BarrierCubes" index="81" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -2)
+
+[node name="BarrierCube83" parent="BarrierCubes" index="82" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
+
+[node name="BarrierCube84" parent="BarrierCubes" index="83" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -3)
+
+[node name="BarrierCube85" parent="BarrierCubes" index="84" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -3)
+
+[node name="BarrierCube86" parent="BarrierCubes" index="85" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4)
+
+[node name="BarrierCube87" parent="BarrierCubes" index="86" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -4)
+
+[node name="BarrierCube88" parent="BarrierCubes" index="87" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -4)
+
+[node name="BarrierCube89" parent="BarrierCubes" index="88" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
+
+[node name="BarrierCube90" parent="BarrierCubes" index="89" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -5)
+
+[node name="BarrierCube91" parent="BarrierCubes" index="90" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -5)
+
+[node name="BarrierCube92" parent="BarrierCubes" index="91" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -5)
+
+[node name="BarrierCube93" parent="BarrierCubes" index="92" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, -5)
+
+[node name="BarrierCube94" parent="BarrierCubes" index="93" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -6)
+
+[node name="BarrierCube95" parent="BarrierCubes" index="94" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, -6)
+
+[node name="BarrierCube96" parent="BarrierCubes" index="95" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -4)
+
+[node name="BarrierCube97" parent="BarrierCubes" index="96" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, -4)
+
+[node name="BarrierCube98" parent="BarrierCubes" index="97" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -3)
+
+[node name="BarrierCube99" parent="BarrierCubes" index="98" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, -3)
+
+[node name="BarrierCube100" parent="BarrierCubes" index="99" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, -6)
+
+[node name="BarrierCube101" parent="BarrierCubes" index="100" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -6)
+
+[node name="BarrierCube102" parent="BarrierCubes" index="101" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, -6)
+
+[node name="BarrierCube103" parent="BarrierCubes" index="102" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -6)
+
+[node name="BarrierCube104" parent="BarrierCubes" index="103" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4, -6)
+
+[node name="BarrierCube105" parent="BarrierCubes" index="104" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3, -6)
+
+[node name="BarrierCube106" parent="BarrierCubes" index="105" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, -6)
+
+[node name="BarrierCube107" parent="BarrierCubes" index="106" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3, -6)
+
+[node name="BarrierCube109" parent="BarrierCubes" index="107" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, -6)
+
+[node name="BarrierCube110" parent="BarrierCubes" index="108" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, -6)
+
+[node name="BarrierCube111" parent="BarrierCubes" index="109" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, -6)
+
+[node name="BarrierCube112" parent="BarrierCubes" index="110" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, -6)
+
+[node name="BarrierCube113" parent="BarrierCubes" index="111" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, -6)
+
+[node name="BarrierCube108" parent="BarrierCubes" index="112" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, -5)
+
+[node name="BarrierCube114" parent="BarrierCubes" index="113" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -5)
+
+[node name="BarrierCube115" parent="BarrierCubes" index="114" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, -4)
+
+[node name="BarrierCube116" parent="BarrierCubes" index="115" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -4)
+
+[node name="BarrierCube117" parent="BarrierCubes" index="116" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, -4)
+
+[node name="BarrierCube118" parent="BarrierCubes" index="117" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, -5)
+
+[node name="BarrierCube119" parent="BarrierCubes" index="118" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, -4)
+
+[node name="BarrierCube120" parent="BarrierCubes" index="119" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, -5)
+
+[node name="BarrierCube121" parent="BarrierCubes" index="120" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -2)
+
+[node name="BarrierCube122" parent="BarrierCubes" index="121" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, -2)
+
+[node name="BarrierCube123" parent="BarrierCubes" index="122" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -1)
+
+[node name="BarrierCube124" parent="BarrierCubes" index="123" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, -1)
+
+[node name="BarrierCube125" parent="BarrierCubes" index="124" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 1)
+
+[node name="BarrierCube126" parent="BarrierCubes" index="125" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 1)
+
+[node name="BarrierCube127" parent="BarrierCubes" index="126" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, 1)
+
+[node name="BarrierCube128" parent="BarrierCubes" index="127" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, 0)
+
+[node name="BarrierCube129" parent="BarrierCubes" index="128" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, -3)
+
+[node name="BarrierCube130" parent="BarrierCubes" index="129" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -3)
+
+[node name="BarrierCube131" parent="BarrierCubes" index="130" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, -3)
+
+[node name="BarrierCube132" parent="BarrierCubes" index="131" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, -2)
+
+[node name="BarrierCube133" parent="BarrierCubes" index="132" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -2)
+
+[node name="BarrierCube134" parent="BarrierCubes" index="133" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, -2)
+
+[node name="BarrierCube135" parent="BarrierCubes" index="134" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, -1)
+
+[node name="BarrierCube136" parent="BarrierCubes" index="135" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -1)
+
+[node name="BarrierCube137" parent="BarrierCubes" index="136" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, -1)
+
+[node name="BarrierCube138" parent="BarrierCubes" index="137" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, 0)
+
+[node name="BarrierCube140" parent="BarrierCubes" index="138" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, 0)
+
+[node name="BarrierCube139" parent="BarrierCubes" index="139" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, 1)
+
+[node name="BarrierCube141" parent="BarrierCubes" index="140" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, 1)
+
+[node name="BarrierCube142" parent="BarrierCubes" index="141" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 1)
+
+[node name="BarrierCube143" parent="BarrierCubes" index="142" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 0)
+
+[node name="BarrierCube144" parent="BarrierCubes" index="143" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -3)
+
+[node name="BarrierCube145" parent="BarrierCubes" index="144" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -1)
+
+[node name="BarrierCube146" parent="BarrierCubes" index="145" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -2)
+
+[node name="BarrierCube147" parent="BarrierCubes" index="146" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="BarrierCube148" parent="BarrierCubes" index="147" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -3)
+
+[node name="BarrierCube149" parent="BarrierCubes" index="148" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -1)
+
+[node name="BarrierCube150" parent="BarrierCubes" index="149" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -2)
+
+[node name="BarrierCube151" parent="BarrierCubes" index="150" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -4)
+
+[node name="BarrierCube152" parent="BarrierCubes" index="151" instance=ExtResource("3_k4mvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -5)

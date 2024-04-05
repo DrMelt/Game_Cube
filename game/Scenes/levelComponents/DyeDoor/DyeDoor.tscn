@@ -5,13 +5,15 @@
 [ext_resource type="Shader" uid="uid://col67pkx34stu" path="res://game/Scenes/levelComponents/DyeDoor/DyeDoor.tres" id="3_a8rhw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kxaui"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_a8rhw")
 shader_parameter/Color = Color(1, 1, 1, 1)
 
-[node name="DyeDoor" instance=ExtResource("1_26os5")]
+[node name="DyeDoor" node_paths=PackedStringArray("cubeRef") instance=ExtResource("1_26os5")]
 script = ExtResource("2_bw6sr")
 cubeColor = 4
+cubeRef = NodePath("Cube")
 cubeType = 4
 
 [node name="Cube" parent="." index="0"]

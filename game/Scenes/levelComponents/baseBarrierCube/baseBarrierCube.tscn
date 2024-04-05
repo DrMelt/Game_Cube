@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://byjeabf4yd1y3"]
+[gd_scene load_steps=5 format=3 uid="uid://byjeabf4yd1y3"]
 
 [ext_resource type="PackedScene" uid="uid://dpq0fo2s1vc7" path="res://SourceFiles/level/element.glb" id="1_5ixbb"]
 [ext_resource type="Shader" uid="uid://clagecri0ywf3" path="res://game/Scenes/levelComponents/baseBarrierCube/baseBarrierCube.tres" id="2_k1hi0"]
@@ -11,19 +11,9 @@ shader_parameter/wallColor = Color(0.66, 0.66, 0.66, 1)
 shader_parameter/floorColor = Color(0.290196, 0.290196, 0.290196, 1)
 shader_parameter/lineColor = Color(0.427451, 0.427451, 0.427451, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_skdhf"]
-
 [node name="BarrierCube" instance=ExtResource("1_5ixbb")]
 script = ExtResource("2_kdvlx")
+cubeType = 1
 
 [node name="Cube" parent="." index="0"]
 material_override = SubResource("ShaderMaterial_1qgqi")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
-visible = false
-collision_layer = 256
-collision_mask = 257
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_skdhf")
