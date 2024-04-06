@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cjnc25fajr46a" path="res://game/Scenes/levels/LevelBase.tscn" id="1_axiiy"]
 [ext_resource type="PackedScene" uid="uid://cmotakodmdymh" path="res://game/Scenes/levelComponents/DoorIndicate/DoorIndicate.tscn" id="2_44l66"]
-[ext_resource type="PackedScene" uid="uid://d36jugacf5kcr" path="res://game/Scenes/levelComponents/SpawnPoint/SpawnPoint.tscn" id="2_mcbuh"]
 [ext_resource type="PackedScene" uid="uid://c40ojof70j8ss" path="res://game/Scenes/levelComponents/ColorDoor/ColorDoor.tscn" id="3_rogf7"]
+[ext_resource type="PackedScene" uid="uid://d36jugacf5kcr" path="res://game/Scenes/levelComponents/SpawnPoint/SpawnPoint.tscn" id="4_bodq8"]
 [ext_resource type="PackedScene" uid="uid://byjeabf4yd1y3" path="res://game/Scenes/levelComponents/baseBarrierCube/baseBarrierCube.tscn" id="4_enc6l"]
 
 [node name="Level_00_02" instance=ExtResource("1_axiiy")]
@@ -12,11 +12,13 @@ levelName = 3
 [node name="ColorDoorTo0003" parent="." index="0" instance=ExtResource("3_rogf7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 1, 6)
 isOutDoor = true
+lockWhen = [4]
 nextLevel = 4
 
-[node name="ColorDoorToNull" parent="." index="1" instance=ExtResource("3_rogf7")]
+[node name="ColorDoorTo0101" parent="." index="1" instance=ExtResource("3_rogf7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 1, 6)
 isOutDoor = true
+lockWhen = [8]
 nextLevel = 8
 doorColor = 2
 
@@ -26,7 +28,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 2,
 [node name="DoorIndicate2" parent="." index="3" instance=ExtResource("2_44l66")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 2, 6)
 
-[node name="SpawnPoint" parent="." index="4" instance=ExtResource("2_mcbuh")]
+[node name="SpawnPoint" parent="." index="4" instance=ExtResource("4_bodq8")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1, 1)
 
 [node name="BarrierCubes" type="Node3D" parent="." index="5"]

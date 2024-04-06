@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dpq0fo2s1vc7" path="res://SourceFiles/level/element.glb" id="1_dwskk"]
 [ext_resource type="Script" path="res://game/Scenes/levelComponents/SpawnPoint/SpawnPoint.cs" id="2_lbx6r"]
-[ext_resource type="Shader" uid="uid://bmjyr4tt6g77n" path="res://game/Scenes/levelComponents/SpawnPoint/SpawnPoint.tres" id="3_jfyum"]
+[ext_resource type="Shader" uid="uid://bmjyr4tt6g77n" path="res://game/Scenes/levelComponents/SpawnPoint/SpawnPoint.tres" id="3_dolna"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sfh44"]
 render_priority = 0
-shader = ExtResource("3_jfyum")
+shader = ExtResource("3_dolna")
 
 [node name="SpawnPoint" instance=ExtResource("1_dwskk")]
 script = ExtResource("2_lbx6r")

@@ -10,18 +10,20 @@
 [node name="Level_00_05" instance=ExtResource("1_u1f4n")]
 levelName = 6
 
-[node name="ColorDoor2" parent="." index="0" instance=ExtResource("2_2o8fu")]
-transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -2.38419e-06, 1, 7)
-doorColor = 2
-
-[node name="ColorDoor" parent="." index="1" instance=ExtResource("2_2o8fu")]
+[node name="OutDoor" parent="." index="0" instance=ExtResource("2_2o8fu")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5, 1, 6)
 isOutDoor = true
+lockWhen = [7]
 nextLevel = 7
 doorColor = 4
 
+[node name="ColorDoor2" parent="." index="1" instance=ExtResource("2_2o8fu")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -2.38419e-06, 1, 7)
+doorColor = 2
+
 [node name="DyeDoor" parent="." index="2" instance=ExtResource("2_28i8p")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 4, 1, 5)
+cubeColor = 4
 
 [node name="SpawnPoint" parent="." index="3" instance=ExtResource("2_x6j7l")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 1)

@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 namespace GameKernel
@@ -11,6 +12,9 @@ namespace GameKernel
 		[Export]
 		Dir outDir = Dir.FORWORD;
 
+		[Export]
+		Array<LevelName> lockWhen = new Array<LevelName>();
+
 
 		[Export]
 		LevelName nextLevel = LevelName.NULL;
@@ -20,7 +24,6 @@ namespace GameKernel
 
 		CubeColor originColor;
 
-		[Export]
 		MeshInstance3D cubeRef;
 
 		ShaderMaterial material;
@@ -41,6 +44,7 @@ namespace GameKernel
 		public override void _Ready()
 		{
 			originColor = doorColor;
+			cubeRef = GetNode<MeshInstance3D>("./Cube");
 			material = cubeRef.MaterialOverride as ShaderMaterial;
 			SetColor(doorColor);
 
@@ -93,7 +97,7 @@ namespace GameKernel
 		{
 			base.ReSet();
 
-			if (LevelsManager.CurrentLevel == nextLevel && isOutDoor)
+			if (lockWhen.IndexOf(LevelsManager.CurrentLevel) > -1)
 			{
 				SetColorBlack();
 			}
@@ -102,6 +106,7 @@ namespace GameKernel
 				doorColor = originColor;
 				SetColor(doorColor);
 			}
+
 		}
 	}
 }

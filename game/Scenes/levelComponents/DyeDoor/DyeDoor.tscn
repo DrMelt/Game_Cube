@@ -12,7 +12,7 @@ shader_parameter/Color = Color(1, 1, 1, 1)
 
 [node name="DyeDoor" node_paths=PackedStringArray("cubeRef") instance=ExtResource("1_26os5")]
 script = ExtResource("2_bw6sr")
-cubeColor = 4
+cubeColor = 7
 cubeRef = NodePath("Cube")
 cubeType = 4
 

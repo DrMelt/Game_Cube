@@ -11,6 +11,10 @@ namespace GameKernel
 
 
 		[ExportGroup("Reference Data")]
+		[Export(PropertyHint.File, "*.tscn")]
+		string crossFileRef = "";
+		PackedScene crossLoaded;
+
 		[Export]
 		Camera3D camera;
 		[Export]
@@ -64,6 +68,7 @@ namespace GameKernel
 			prePos = playerInstance.GlobalPosition;
 			tryVec = Vector3.Zero;
 			isTransforming = false;
+			transformedTime = 0.0f;
 		}
 
 		void StartLevelInitPlayer(LevelName levelName)
@@ -72,6 +77,7 @@ namespace GameKernel
 			camera.GlobalBasis = LevelsManager.GetLevel(levelName).SpawnTrans.Basis;
 
 			color = LevelsManager.GetLevel(levelName).StartColor;
+			SetPostPorcessShaderColor(color);
 
 			Init();
 		}
@@ -87,6 +93,8 @@ namespace GameKernel
 			globalConfigurations = GetNode<GlobalConfigurations>(GlobalConfigurations.NodePath);
 
 			postProcessShader = postProcessInstance.MaterialOverride as ShaderMaterial;
+
+			crossLoaded = ResourceLoader.Load<PackedScene>(crossFileRef);
 
 			Init();
 
@@ -136,7 +144,7 @@ namespace GameKernel
 		}
 
 
-		void TryTarget(Vector3 tryPos)
+		bool TryTargetAndTrans(Vector3 tryPos)
 		{
 			tryVec = tryPos - prePos;
 			if (tryVec.Length() > 0.001f)
@@ -151,7 +159,9 @@ namespace GameKernel
 					LevelsManager.SignalExit(this, CubeBase.Vec3ConvertToVec3I(prePos));
 					LevelsManager.SignalEnter(this, CubeBase.Vec3ConvertToVec3I(targetPos));
 				}
+				return canEntry;
 			}
+			return true;
 		}
 
 		void CheckDown()
@@ -159,7 +169,7 @@ namespace GameKernel
 			if (!isTransforming)
 			{
 				Vector3 tryPos = prePos + Vector3.Down;
-				TryTarget(tryPos);
+				TryTargetAndTrans(tryPos);
 			}
 		}
 
@@ -184,8 +194,17 @@ namespace GameKernel
 
 				Vector3 moveVec = moveVecLocal.X * dirLeftVec + moveVecLocal.Y * Vector3.Up + moveVecLocal.Z * dirForwardVec;
 
-				Vector3 tryPos = prePos + moveVec;
-				TryTarget(tryPos);
+				if (moveVec.Length() > 0.001f)
+				{
+					Vector3 tryPos = prePos + moveVec;
+					bool result = TryTargetAndTrans(tryPos);
+					if (result == false)
+					{
+						Cross cross = crossLoaded.Instantiate<Cross>();
+						AddChild(cross);
+						cross.GlobalPosition = tryPos;
+					}
+				}
 			}
 		}
 

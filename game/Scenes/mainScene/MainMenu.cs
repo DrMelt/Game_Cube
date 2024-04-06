@@ -11,6 +11,8 @@ namespace GameKernel
 
 		public override void _Ready()
 		{
+			Visible = false;
+
 			startButtonRef.GrabFocus();
 
 			ButtonLevelSelect.EntryLevelEvenet += (levelName) =>

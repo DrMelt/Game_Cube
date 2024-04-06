@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cefg0vic160lh"]
+[gd_scene load_steps=49 format=3 uid="uid://cefg0vic160lh"]
 
 [ext_resource type="PackedScene" uid="uid://bd3rqp1hkw16l" path="res://game/Avatars/player/player.tscn" id="1_gy4ew"]
 [ext_resource type="Script" path="res://game/Config/GlobalConfigurations.cs" id="1_um806"]
@@ -19,14 +19,19 @@
 [ext_resource type="PackedScene" uid="uid://c21q6vk6akos0" path="res://game/Scenes/levels/part01/level_01_01.tscn" id="11_83ffi"]
 [ext_resource type="Script" path="res://game/UI/SpeedHSlider.cs" id="11_baqu0"]
 [ext_resource type="Script" path="res://game/Scenes/mainScene/LevelEndUI.cs" id="12_3b1er"]
+[ext_resource type="PackedScene" uid="uid://fseae1uktbes" path="res://game/Scenes/levels/part01/level_01_02.tscn" id="12_m5cuv"]
 [ext_resource type="Script" path="res://game/UI/ButtonLevelSelect.cs" id="13_6jpd2"]
 [ext_resource type="Texture2D" uid="uid://c63gefaql0q5n" path="res://SourceFiles/Title/title.png" id="13_a8g8a"]
+[ext_resource type="PackedScene" uid="uid://dy473d55pbx15" path="res://game/Scenes/levels/part01/level_01_03.tscn" id="13_ke0vq"]
+[ext_resource type="PackedScene" uid="uid://bixqn1d6wo0jq" path="res://game/Scenes/levels/EndPart/level_end.tscn" id="13_nonbi"]
 [ext_resource type="Theme" uid="uid://c84xoruxq4j1j" path="res://game/UI/Theme.tres" id="14_o6wpl"]
 [ext_resource type="Script" path="res://game/UI/GoLevels.cs" id="16_jrghi"]
 [ext_resource type="Script" path="res://game/UI/LevelSelect.cs" id="17_m6a13"]
 [ext_resource type="Script" path="res://game/UI/GoBackButton.cs" id="18_4ahgf"]
 [ext_resource type="Script" path="res://game/UI/ButtonBackMenu.cs" id="19_ljjbr"]
 [ext_resource type="Script" path="res://game/UI/RetryButton.cs" id="20_u13h8"]
+[ext_resource type="Texture2D" uid="uid://dbo8ncy2xeech" path="res://SourceFiles/StartImg/StartImg.png" id="31_kyynm"]
+[ext_resource type="Script" path="res://game/UI/StartImg.cs" id="31_ywj1a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x6yxk"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -43,6 +48,9 @@ glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5m3p1"]
 size = Vector3(10, 0.095, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cibq8"]
+bg_color = Color(0.294118, 0.294118, 0.294118, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c3k2m"]
 texture = ExtResource("13_a8g8a")
@@ -70,13 +78,22 @@ events = [SubResource("InputEventKey_7ju84"), SubResource("InputEventJoypadButto
 texture = SubResource("CanvasTexture_o6pej")
 modulate_color = Color(0.305882, 0.321569, 0.321569, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogntc"]
+bg_color = Color(0.529412, 0.529412, 0.529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nn0uf"]
+bg_color = Color(0.541176, 0.541176, 0.541176, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jfy0a"]
+texture = ExtResource("31_kyynm")
+
 [node name="main" type="Node3D"]
 
 [node name="Config" type="Node" parent="."]
 
 [node name="GlobalConfigurations" type="Node" parent="Config"]
 script = ExtResource("1_um806")
-sensitivity = 0.2
+sensitivity = 0.15
 moveSpeed = 0.3
 
 [node name="InputConfig" type="Node" parent="Config"]
@@ -121,6 +138,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 18)
 [node name="Level_01_01" parent="Scene/Levels" instance=ExtResource("11_83ffi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 13)
 
+[node name="Level_01_02" parent="Scene/Levels" instance=ExtResource("12_m5cuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 18)
+
+[node name="Level_01_03" parent="Scene/Levels" instance=ExtResource("13_ke0vq")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5, 3, 27)
+
+[node name="LevelEnd" parent="Scene/Levels" instance=ExtResource("13_nonbi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 4, 32)
+
 [node name="Test" type="Node3D" parent="Scene/Levels"]
 visible = false
 
@@ -138,10 +164,6 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -152,13 +174,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("14_o6wpl")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cibq8")
 
 [node name="Player" parent="Scene/PlayerSet" instance=ExtResource("1_gy4ew")]
 
@@ -285,10 +307,10 @@ mainMenuRef = NodePath("../../../MainMenu")
 
 [node name="Button_level00-01" type="Button" parent="UI/UI/LevelSelect/Panel"]
 layout_mode = 0
-offset_left = 92.0
-offset_top = 139.0
-offset_right = 152.0
-offset_bottom = 189.0
+offset_left = 100.0
+offset_top = 140.0
+offset_right = 160.0
+offset_bottom = 190.0
 theme = ExtResource("14_o6wpl")
 theme_override_fonts/font = ExtResource("3_scyia")
 theme_override_font_sizes/font_size = 27
@@ -298,10 +320,10 @@ levelName = 2
 
 [node name="Button_level00-02" type="Button" parent="UI/UI/LevelSelect/Panel"]
 layout_mode = 0
-offset_left = 242.0
-offset_top = 139.0
-offset_right = 302.0
-offset_bottom = 189.0
+offset_left = 250.0
+offset_top = 140.0
+offset_right = 310.0
+offset_bottom = 190.0
 theme = ExtResource("14_o6wpl")
 theme_override_fonts/font = ExtResource("3_scyia")
 theme_override_font_sizes/font_size = 27
@@ -311,10 +333,10 @@ levelName = 3
 
 [node name="Button_level00-03" type="Button" parent="UI/UI/LevelSelect/Panel"]
 layout_mode = 0
-offset_left = 392.0
-offset_top = 139.0
-offset_right = 452.0
-offset_bottom = 189.0
+offset_left = 400.0
+offset_top = 140.0
+offset_right = 460.0
+offset_bottom = 190.0
 theme = ExtResource("14_o6wpl")
 theme_override_fonts/font = ExtResource("3_scyia")
 theme_override_font_sizes/font_size = 27
@@ -324,10 +346,10 @@ levelName = 4
 
 [node name="Button_level00-04" type="Button" parent="UI/UI/LevelSelect/Panel"]
 layout_mode = 0
-offset_left = 542.0
-offset_top = 139.0
-offset_right = 602.0
-offset_bottom = 189.0
+offset_left = 550.0
+offset_top = 140.0
+offset_right = 610.0
+offset_bottom = 190.0
 theme = ExtResource("14_o6wpl")
 theme_override_fonts/font = ExtResource("3_scyia")
 theme_override_font_sizes/font_size = 27
@@ -337,10 +359,10 @@ levelName = 5
 
 [node name="Button_level00-05" type="Button" parent="UI/UI/LevelSelect/Panel"]
 layout_mode = 0
-offset_left = 692.0
-offset_top = 139.0
-offset_right = 752.0
-offset_bottom = 189.0
+offset_left = 700.0
+offset_top = 140.0
+offset_right = 760.0
+offset_bottom = 190.0
 theme = ExtResource("14_o6wpl")
 theme_override_fonts/font = ExtResource("3_scyia")
 theme_override_font_sizes/font_size = 27
@@ -350,16 +372,75 @@ levelName = 6
 
 [node name="Button_level00-06" type="Button" parent="UI/UI/LevelSelect/Panel"]
 layout_mode = 0
-offset_left = 842.0
-offset_top = 139.0
-offset_right = 902.0
-offset_bottom = 189.0
+offset_left = 850.0
+offset_top = 140.0
+offset_right = 910.0
+offset_bottom = 190.0
 theme = ExtResource("14_o6wpl")
 theme_override_fonts/font = ExtResource("3_scyia")
 theme_override_font_sizes/font_size = 27
 text = "06"
 script = ExtResource("13_6jpd2")
 levelName = 7
+
+[node name="Button_level00-07" type="Button" parent="UI/UI/LevelSelect/Panel"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 410.0
+offset_right = 160.0
+offset_bottom = 460.0
+theme = ExtResource("14_o6wpl")
+theme_override_fonts/font = ExtResource("3_scyia")
+theme_override_font_sizes/font_size = 27
+text = "01"
+script = ExtResource("13_6jpd2")
+levelName = 8
+
+[node name="Button_level00-08" type="Button" parent="UI/UI/LevelSelect/Panel"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 410.0
+offset_right = 310.0
+offset_bottom = 460.0
+theme = ExtResource("14_o6wpl")
+theme_override_fonts/font = ExtResource("3_scyia")
+theme_override_font_sizes/font_size = 27
+text = "02"
+script = ExtResource("13_6jpd2")
+levelName = 9
+
+[node name="Label" type="Label" parent="UI/UI/LevelSelect/Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 64.0
+offset_right = 156.0
+offset_bottom = 106.0
+theme = ExtResource("14_o6wpl")
+theme_override_font_sizes/font_size = 30
+text = "Level00"
+
+[node name="Label2" type="Label" parent="UI/UI/LevelSelect/Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 339.0
+offset_right = 156.0
+offset_bottom = 381.0
+theme = ExtResource("14_o6wpl")
+theme_override_font_sizes/font_size = 30
+text = "Level01"
+
+[node name="Button_level00-09" type="Button" parent="UI/UI/LevelSelect/Panel"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 410.0
+offset_right = 460.0
+offset_bottom = 460.0
+theme = ExtResource("14_o6wpl")
+theme_override_fonts/font = ExtResource("3_scyia")
+theme_override_font_sizes/font_size = 27
+text = "03"
+script = ExtResource("13_6jpd2")
+levelName = 10
 
 [node name="SettingPanel" type="Control" parent="UI/UI" node_paths=PackedStringArray("focusInitButton")]
 visible = false
@@ -519,16 +600,65 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ogntc")
+
+[node name="Label" type="Label" parent="UI/UI/LevelEndUI/Panel"]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 187.0
+offset_right = 673.0
+offset_bottom = 324.0
+theme = ExtResource("14_o6wpl")
+theme_override_font_sizes/font_size = 100
+text = "END"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonBackMenu" type="Button" parent="UI/UI/LevelEndUI/Panel"]
 layout_mode = 0
 offset_left = 472.0
-offset_top = 304.0
+offset_top = 469.0
 offset_right = 672.0
-offset_bottom = 364.0
+offset_bottom = 529.0
 pivot_offset = Vector2(100, 30)
 theme = ExtResource("14_o6wpl")
 theme_override_fonts/font = ExtResource("3_scyia")
 theme_override_font_sizes/font_size = 27
 text = "Back Menu"
 script = ExtResource("19_ljjbr")
+
+[node name="Label2" type="Label" parent="UI/UI/LevelEndUI/Panel"]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 309.0
+offset_right = 694.0
+offset_bottom = 332.0
+text = "Thank you for playing my game"
+
+[node name="StartImg" type="Control" parent="UI/UI" node_paths=PackedStringArray("mainControlRef")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("31_ywj1a")
+mainControlRef = NodePath("../MainMenu")
+time = 1.0
+
+[node name="bg" type="Panel" parent="UI/UI/StartImg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nn0uf")
+
+[node name="StartImg" type="Panel" parent="UI/UI/StartImg"]
+layout_mode = 0
+offset_left = 250.0
+offset_right = 911.0
+offset_bottom = 661.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jfy0a")

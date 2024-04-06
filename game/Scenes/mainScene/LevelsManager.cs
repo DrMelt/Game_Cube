@@ -17,6 +17,7 @@ namespace GameKernel
 		LEVEL01_01,
 		LEVEL01_02,
 		LEVEL01_03,
+		LEVEL01_END,
 		MAX_LEVEL_NUM
 	}
 

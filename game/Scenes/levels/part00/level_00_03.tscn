@@ -9,13 +9,19 @@
 [node name="Level_00_03" instance=ExtResource("1_8dn5d")]
 levelName = 4
 
-[node name="DoorIndicate" parent="." index="0" instance=ExtResource("2_kr07t")]
+[node name="OutDoor" parent="." index="0" instance=ExtResource("2_ue4v2")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -8, 1, 1)
+isOutDoor = true
+lockWhen = [5]
+nextLevel = 5
+
+[node name="DoorIndicate" parent="." index="1" instance=ExtResource("2_kr07t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 1)
 
-[node name="SpawnPoint" parent="." index="1" instance=ExtResource("2_ofxda")]
+[node name="SpawnPoint" parent="." index="2" instance=ExtResource("2_ofxda")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 1)
 
-[node name="BarrierCubes" type="Node3D" parent="." index="2"]
+[node name="BarrierCubes" type="Node3D" parent="." index="3"]
 
 [node name="BarrierCube" parent="BarrierCubes" index="0" instance=ExtResource("3_xlij4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -1, 1)
@@ -143,10 +149,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3, 2)
 [node name="BarrierCube45" parent="BarrierCubes" index="41" instance=ExtResource("3_xlij4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3, 1)
 
-[node name="ColorDoor2" parent="." index="3" instance=ExtResource("2_ue4v2")]
+[node name="ColorDoor2" parent="." index="4" instance=ExtResource("2_ue4v2")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, 1)
-
-[node name="ColorDoor3" parent="." index="4" instance=ExtResource("2_ue4v2")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -8, 1, 1)
-isOutDoor = true
-nextLevel = 5

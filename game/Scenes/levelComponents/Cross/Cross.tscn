@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://4wixypxqq8nd"]
+
+[ext_resource type="PackedScene" uid="uid://ds8mbwnnd6cfd" path="res://game/Scenes/levelComponents/CubeBase.tscn" id="1_rmidc"]
+[ext_resource type="Script" path="res://game/Scenes/levelComponents/Cross/Cross.cs" id="2_yeois"]
+[ext_resource type="Shader" uid="uid://bd8mpjtmpaapf" path="res://game/Scenes/levelComponents/Cross/Cross.tres" id="3_t7utp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jddq0"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("3_t7utp")
+shader_parameter/CrossAlpha = 1.0
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
+
+[node name="Cross" node_paths=PackedStringArray("meshRef") instance=ExtResource("1_rmidc")]
+script = ExtResource("2_yeois")
+lifeTime = 0.5
+meshRef = NodePath("Cube")
+
+[node name="Cube" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_jddq0")

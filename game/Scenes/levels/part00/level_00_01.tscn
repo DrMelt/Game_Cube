@@ -142,6 +142,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 [node name="element3" parent="Cubes" index="5" instance=ExtResource("2_mtcug")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 6)
 isOutDoor = true
+lockWhen = [3]
 nextLevel = 3
 
 [node name="element" parent="Cubes" index="6" instance=ExtResource("3_vujyd")]

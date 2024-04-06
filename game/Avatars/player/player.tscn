@@ -20,6 +20,7 @@ size = Vector2(2, 2)
 
 [node name="PlayerRoot" type="Node3D" node_paths=PackedStringArray("camera", "playerInstance", "postProcessInstance")]
 script = ExtResource("1_xoh4g")
+crossFileRef = "res://game/Scenes/levelComponents/Cross/Cross.tscn"
 camera = NodePath("PlayerInstance/Camera3D")
 playerInstance = NodePath("PlayerInstance")
 postProcessInstance = NodePath("PlayerInstance/Camera3D/PostProcessing3D")

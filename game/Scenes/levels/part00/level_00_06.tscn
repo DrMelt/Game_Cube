@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://1njuoq6lsbwy"]
 
 [ext_resource type="PackedScene" uid="uid://cjnc25fajr46a" path="res://game/Scenes/levels/LevelBase.tscn" id="1_5r5h4"]
-[ext_resource type="PackedScene" uid="uid://d36jugacf5kcr" path="res://game/Scenes/levelComponents/SpawnPoint/SpawnPoint.tscn" id="2_30txt"]
 [ext_resource type="PackedScene" uid="uid://cix3atgsypxyk" path="res://game/Scenes/levelComponents/DyeDoor/DyeDoor.tscn" id="2_gin2f"]
 [ext_resource type="PackedScene" uid="uid://c40ojof70j8ss" path="res://game/Scenes/levelComponents/ColorDoor/ColorDoor.tscn" id="2_i2epm"]
 [ext_resource type="PackedScene" uid="uid://cmotakodmdymh" path="res://game/Scenes/levelComponents/DoorIndicate/DoorIndicate.tscn" id="2_nbwhv"]
 [ext_resource type="PackedScene" uid="uid://byjeabf4yd1y3" path="res://game/Scenes/levelComponents/baseBarrierCube/baseBarrierCube.tscn" id="3_k4mvg"]
+[ext_resource type="PackedScene" uid="uid://d36jugacf5kcr" path="res://game/Scenes/levelComponents/SpawnPoint/SpawnPoint.tscn" id="5_pkhud"]
 
 [node name="Level_00_06" instance=ExtResource("1_5r5h4")]
 levelName = 7
@@ -13,7 +13,7 @@ levelName = 7
 [node name="DoorIndicate" parent="." index="0" instance=ExtResource("2_nbwhv")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7, 4, 0)
 
-[node name="ColorDoor3" parent="." index="1" instance=ExtResource("2_i2epm")]
+[node name="OutDoor" parent="." index="1" instance=ExtResource("2_i2epm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 0)
 isOutDoor = true
 nextLevel = 3
@@ -28,8 +28,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 1, 
 [node name="ColorDoor2" parent="." index="4" instance=ExtResource("2_i2epm")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 2, 0)
 
-[node name="SpawnPoint" parent="." index="5" instance=ExtResource("2_30txt")]
+[node name="SpawnPoint" parent="." index="5" instance=ExtResource("5_pkhud")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 1, 0)
+playerStartColor = 4
 
 [node name="BarrierCubes" type="Node3D" parent="." index="6"]
 
