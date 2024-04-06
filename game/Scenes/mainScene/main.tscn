@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cefg0vic160lh"]
+[gd_scene load_steps=50 format=3 uid="uid://cefg0vic160lh"]
 
 [ext_resource type="PackedScene" uid="uid://bd3rqp1hkw16l" path="res://game/Avatars/player/player.tscn" id="1_gy4ew"]
 [ext_resource type="Script" path="res://game/Config/GlobalConfigurations.cs" id="1_um806"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dy473d55pbx15" path="res://game/Scenes/levels/part01/level_01_03.tscn" id="13_ke0vq"]
 [ext_resource type="PackedScene" uid="uid://bixqn1d6wo0jq" path="res://game/Scenes/levels/EndPart/level_end.tscn" id="13_nonbi"]
 [ext_resource type="Theme" uid="uid://c84xoruxq4j1j" path="res://game/UI/Theme.tres" id="14_o6wpl"]
+[ext_resource type="Script" path="res://game/Avatars/player/CenterPanel.cs" id="15_b0u24"]
 [ext_resource type="Script" path="res://game/UI/GoLevels.cs" id="16_jrghi"]
 [ext_resource type="Script" path="res://game/UI/LevelSelect.cs" id="17_m6a13"]
 [ext_resource type="Script" path="res://game/UI/GoBackButton.cs" id="18_4ahgf"]
@@ -49,8 +50,12 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_5m3p1"]
 size = Vector3(10, 0.095, 10)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cibq8"]
-bg_color = Color(0.294118, 0.294118, 0.294118, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8affl"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.223529, 0.223529, 0.223529, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c3k2m"]
 texture = ExtResource("13_a8g8a")
@@ -167,7 +172,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Scene/PlayerSet/Center"]
+[node name="CenterPanel" type="Panel" parent="Scene/PlayerSet/Center"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -180,9 +185,11 @@ offset_right = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_cibq8")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8affl")
+script = ExtResource("15_b0u24")
 
-[node name="Player" parent="Scene/PlayerSet" instance=ExtResource("1_gy4ew")]
+[node name="Player" parent="Scene/PlayerSet" node_paths=PackedStringArray("centerPanelRef") instance=ExtResource("1_gy4ew")]
+centerPanelRef = NodePath("../Center/CenterPanel")
 
 [node name="UI" type="Node" parent="."]
 
@@ -195,6 +202,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MainMenu" type="Control" parent="UI/UI" node_paths=PackedStringArray("startButtonRef")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -604,10 +612,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ogntc")
 
 [node name="Label" type="Label" parent="UI/UI/LevelEndUI/Panel"]
 layout_mode = 0
-offset_left = 466.0
-offset_top = 187.0
-offset_right = 673.0
-offset_bottom = 324.0
+offset_left = 475.0
+offset_top = 180.0
+offset_right = 682.0
+offset_bottom = 317.0
 theme = ExtResource("14_o6wpl")
 theme_override_font_sizes/font_size = 100
 text = "END"
@@ -616,10 +624,10 @@ vertical_alignment = 1
 
 [node name="ButtonBackMenu" type="Button" parent="UI/UI/LevelEndUI/Panel"]
 layout_mode = 0
-offset_left = 472.0
-offset_top = 469.0
-offset_right = 672.0
-offset_bottom = 529.0
+offset_left = 478.0
+offset_top = 429.0
+offset_right = 678.001
+offset_bottom = 489.0
 pivot_offset = Vector2(100, 30)
 theme = ExtResource("14_o6wpl")
 theme_override_fonts/font = ExtResource("3_scyia")
@@ -629,11 +637,13 @@ script = ExtResource("19_ljjbr")
 
 [node name="Label2" type="Label" parent="UI/UI/LevelEndUI/Panel"]
 layout_mode = 0
-offset_left = 451.0
-offset_top = 309.0
-offset_right = 694.0
-offset_bottom = 332.0
-text = "Thank you for playing my game"
+offset_left = 457.0
+offset_top = 319.0
+offset_right = 700.0
+offset_bottom = 342.0
+text = "Thank you for playing"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StartImg" type="Control" parent="UI/UI" node_paths=PackedStringArray("mainControlRef")]
 visible = false

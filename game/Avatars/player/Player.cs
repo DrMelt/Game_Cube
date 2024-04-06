@@ -23,6 +23,9 @@ namespace GameKernel
 		MeshInstance3D postProcessInstance;
 		ShaderMaterial postProcessShader;
 
+		[Export]
+		CenterPanel centerPanelRef;
+
 
 		[ExportGroup("Player Data")]
 		[ExportSubgroup("System Data")]
@@ -47,6 +50,7 @@ namespace GameKernel
 			{
 				color = value;
 				SetPostPorcessShaderColor(value);
+				centerPanelRef.Color = value;
 			}
 		}
 		public Vector3 TargetPos { get => targetPos; set => targetPos = value; }

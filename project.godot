@@ -13,10 +13,12 @@ config_version=5
 config/name="Cube"
 run/main_scene="res://game/Scenes/mainScene/main.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
+run/max_fps=60
 config/icon="res://SourceFiles/Icon/Icon.png"
 
 [display]
 
+window/size/initial_position_type=3
 window/stretch/mode="canvas_items"
 
 [dotnet]
