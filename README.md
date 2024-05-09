@@ -4,7 +4,7 @@
 
 使用Godot_v4.2.1-stable_mono_win64开发
 
-目前暂未开源代码
+源代码请切换至project分支
 
 
 
