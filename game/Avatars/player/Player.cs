@@ -80,7 +80,7 @@ namespace GameKernel
 			playerInstance.GlobalPosition = LevelsManager.GetLevel(levelName).SpawnTrans.Origin;
 			camera.GlobalBasis = LevelsManager.GetLevel(levelName).SpawnTrans.Basis;
 
-			color = LevelsManager.GetLevel(levelName).StartColor;
+			Color = LevelsManager.GetLevel(levelName).StartColor;
 			SetPostPorcessShaderColor(color);
 
 			Init();
