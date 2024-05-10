@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cjnc25fajr46a" path="res://game/Scenes/levels/LevelBase.tscn" id="1_dq7uk"]
 [ext_resource type="PackedScene" uid="uid://djpf133iw6cx8" path="res://game/Scenes/levelComponents/Rock/Rock.tscn" id="2_8gaau"]
-[ext_resource type="PackedScene" uid="uid://d36jugacf5kcr" path="res://game/Scenes/levelComponents/SpawnPoint/SpawnPoint.tscn" id="2_drc15"]
+[ext_resource type="PackedScene" uid="uid://d36jugacf5kcr" path="res://game/Scenes/levelComponents/SpawnPoint/spawnPoint.tscn" id="2_drc15"]
 [ext_resource type="PackedScene" uid="uid://cmotakodmdymh" path="res://game/Scenes/levelComponents/DoorIndicate/DoorIndicate.tscn" id="2_t7bs5"]
 [ext_resource type="PackedScene" uid="uid://byjeabf4yd1y3" path="res://game/Scenes/levelComponents/baseBarrierCube/baseBarrierCube.tscn" id="3_x42ro"]
 [ext_resource type="PackedScene" uid="uid://c40ojof70j8ss" path="res://game/Scenes/levelComponents/ColorDoor/ColorDoor.tscn" id="3_xliel"]
